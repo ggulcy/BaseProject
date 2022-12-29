@@ -1,4 +1,18 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.40.5'
+    }
+}
+
+
 plugins {
     id 'com.android.application' version '7.2.1' apply false
     id 'com.android.library' version '7.2.1' apply false
@@ -7,4 +21,74 @@ plugins {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+
+ext {
+    kotlinVersion = "1.7.10"
+
+
+    webkit = "androidx.webkit:webkit:1.4.0"
+    recyclerView = "androidx.recyclerview:recyclerview:1.2.0"
+    constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.4"
+    swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+
+    coreKtx = "androidx.core:core-ktx:1.8.0"
+    fragmentKtx = "androidx.fragment:fragment-ktx:1.5.1"
+    collectionKtx = "androidx.collection:collection-ktx:1.2.0"
+
+
+    kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+
+    materialVersion = '1.5.0'
+    material = "com.google.android.material:material:$materialVersion"
+
+
+    lifecycleVersion = "2.5.0"
+    lifecycle = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    lifecycleLiveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+    lifecycleScopeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    lifecycleCommonJava8 = "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+
+
+    coroutinesVersion = "1.5.2"
+    coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+
+    appCompatVersion = "1.5.0"
+    appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
+    appCompatResource = "androidx.appcompat:appcompat-resources:$appCompatVersion"
+
+    retrofitVersion = "2.9.0"
+    retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    retrofitGson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    okhttp3Log = "com.squareup.okhttp3:logging-interceptor:4.7.2"
+
+    jwtVersion = "3.11.0"
+    jwt = "com.auth0:java-jwt:$jwtVersion"
+
+    glideVersion = "4.13.2"
+    glide = "com.github.bumptech.glide:glide:$glideVersion"
+    glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
+//
+
+    gson = "com.google.code.gson:gson:2.8.8"
+
+    hiltVersion = "2.40.5"
+    hilt ="com.google.dagger:hilt-android:$hiltVersion"
+    hiltCompiler = "com.google.dagger:hilt-android-compiler:$hiltVersion"
+
+    hiltAndroid = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    hiltAndroidCompiler = "androidx.hilt:hilt-compiler:1.0.0"
+
+
+    codecVersion = "1.15"
+    codec = "commons-codec:commons-codec:1.15"
+
+
 }

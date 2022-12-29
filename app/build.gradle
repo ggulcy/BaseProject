@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -22,20 +24,51 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.7.0'
+    implementation rootProject.ext.coreKtx
+    implementation rootProject.ext.fragmentKtx
+    implementation rootProject.ext.collectionKtx
+    implementation rootProject.ext.lifecycleViewModelKtx
+
+    implementation rootProject.ext.kotlinStdLib
+    implementation rootProject.ext.coroutinesCore
+    implementation rootProject.ext.coroutinesAndroid
+
+
+    implementation rootProject.ext.appCompat
+    implementation rootProject.ext.recyclerView
+    implementation rootProject.ext.constraintLayout
+    implementation rootProject.ext.swipeRefreshLayout
+    implementation rootProject.ext.lifecycle
+    implementation rootProject.ext.lifecycleCommonJava8
+
+    implementation rootProject.ext.material
+
+    implementation rootProject.ext.hilt
+    kapt rootProject.ext.hiltCompiler
+
+    implementation rootProject.ext.hiltAndroid
+    kapt rootProject.ext.hiltCompiler
+
+    implementation 'com.github.myinnos:AppIconNameChanger:1.0.7'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
